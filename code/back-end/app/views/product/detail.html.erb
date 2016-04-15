@@ -1,0 +1,33 @@
+<div class="container-fluid container-details" position-by-parent-offset>
+    <div class="product-details">
+        <div class="img-thumbnail-colors">
+            <img src="/products/thumbnails/<%= product.thumbnail %>"/>
+        </div>
+        <img class="img-details" alt="160x200" img-type="detail" img-src="{{product.images}}" err-src="img/no-images.png"/>
+        <div class="size-info">
+            <h3>AVALIBEL SIZE</h3>
+            <p>
+                <span ng-repeat="size in product.sizes"><%= product.size %></span>
+            </p>
+        </div>
+        <div class="product-info">
+            <div class="star-rating">
+            <% for i in 0..5 %>
+                <% 
+                    @class_name = "-o"
+                    if i < product.rating
+                        @class_name = ""
+                    elsif i < product.rating && (i + 0.5) >= product.rating
+                        @class_name = "-half-o"
+                    end
+                 %>
+                <i class="fa fa-star<%=  @class_name %>" aria-hidden="true"></i>
+            <% end %>
+            </div>
+            <div class="product-info">
+                <label title="<%= product.title %>"><%= product.title %></label><br/>
+                <span><%= product.price %></span> USD<br/>
+            </div>
+        </div>
+    </div>
+</div>
