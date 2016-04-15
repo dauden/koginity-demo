@@ -4,15 +4,18 @@ get up and run back-end project
 
 please make soure that you have install ruby on rails and sqlite3
 if your have not install ruby on rails please refer install guide
+ 
   https://www.ruby-lang.org/en/documentation/installation/
 
 - get up
 
-  get clone code to your local
-  $cd your_local_path
-  $sudo bundle install 
-  $bin/rails server
-  + in case error please check your version 
+  get clone code to your local and run command line below
+  
+    $cd your_local_path
+    $sudo bundle install 
+    $bin/rails server
+    
+  + in case error please check your version, it should be
     Rails 4.2.6
     Ruby 2.2.3p173
 
