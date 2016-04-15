@@ -1,28 +1,25 @@
 == README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+get up and run back-end project
 
-Things you may want to cover:
+please make soure that you have install ruby on rails and sqlite3
+if your have not install ruby on rails please refer install guide
+ 
+  https://www.ruby-lang.org/en/documentation/installation/
 
-* Ruby version
+- get up
 
-* System dependencies
+  get clone code to your local and run command line below
+  
+    $cd your_local_path
+    $sudo bundle install 
+    $bin/rails server
+    
+  + in case error please check your version, it should be
+    Rails 4.2.6
+    Ruby 2.2.3p173
 
-* Configuration
+- to run application open url http://localhost:3000 in your brower
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
-
-
-Please feel free to use a different markup language if you do not plan to run
-<tt>rake doc:app</tt>.
+- go to administation namespace let visit http://localhost:3000/admin
+    admin account is: dauden@codingland.com and password is: 123
