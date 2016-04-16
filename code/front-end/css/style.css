@@ -93,6 +93,7 @@ option {
   border: 1px solid Black;
   border-color: attr('data-color');
   margin: 2px;
+  width: 100%;
 }
 
 .size-info {
