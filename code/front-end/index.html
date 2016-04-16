@@ -88,7 +88,7 @@
                     <div class="container-fluid container-details" position-by-parent-offset>
                         <div class="product-details">
                             <div class="img-thumbnail-colors">
-                                <img ng-repeat="color in product.colors" data-color="{{color}}" img-type="model" is-thumbnail="true" alt="40x60" img-src="{{product.images}}" err-src="img/no-images.png"/>
+                                <img replace-image-detail ng-repeat="color in product.colors" data-color="{{color}}" img-type="model" is-thumbnail="true" alt="40x60" img-src="{{product.images}}" err-src="img/no-images.png"/>
                             </div>
                             <img class="img-details" alt="160x200" img-type="detail" img-src="{{product.images}}" err-src="img/no-images.png"/>
                             <div class="size-info">

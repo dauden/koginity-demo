@@ -26,10 +26,14 @@ angular.module('koginity')
           for(var key in images) {
             image = images[key];
             if(image && type === image.type){
-              if(!thumbnail)
+              if(!thumbnail){
+                attrs.$set('thumbnailSrc', image.thumbnail);
                 attrs.$set('src', image.url);
-              else
+              }
+              else{
+                attrs.$set('detailSrc', image.url);
                 attrs.$set('src', image.thumbnail);
+              }
               break;
             }
           };
@@ -68,24 +72,39 @@ angular.module('koginity')
          scope.stars = stars;
       }
     };
-}).directive('positionByParentOffset', function() {
+})
+.directive('positionByParentOffset', function() {
     return {
       restrict: 'EA',
       link: function (scope, element, $window) {
           var screenWidth = $(window).width();
           
-          element.parent().find(".img-thumbnail").bind('mouseenter', function() {
-                element.addClass('active');
-                var leftOffset = element.offset().left;
-                if(leftOffset > screenWidth / 2){
-                   element.css('left', '-' + $(element).width() + 'px');
-                }
-                
-                
+          element.parent().bind('mouseenter', function() {
+            element.addClass('active');
+
+            var leftOffset = element.parent().find(".img-thumbnail").offset().left;
+            if(leftOffset > screenWidth / 2){
+               element.css('left', '-' + $(element).width() + 'px');
+            }
           });
-          element.parent().find(".img-thumbnail").bind('mouseleave', function() {
-               element.removeClass('active');
+          element.parent().bind('mouseleave', function() {
+            element.removeClass('active');
           });
       }
     }
-});
+})
+// defined directive get and apply image by type.
+.directive('replaceImageDetail', function () {
+    return {
+      link: function(scope, element, attrs) {
+        var detailImage = element.parents().find(".img-details");
+        element.bind('mouseenter', function() {
+          element.attr('back-src', detailImage.attr('src'));
+          detailImage.attr('src', attrs.detailSrc);
+        });
+        element.bind('mouseleave', function() {
+           detailImage.attr('src', element.attr('back-src'));
+        });
+      }
+    };
+})
